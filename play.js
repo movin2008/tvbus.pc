@@ -23,12 +23,16 @@ ipcRenderer.on("tvbus-prepared", function(event, url){
 
 ipcRenderer.on("tvbus-stats", function(event, stats){
 	console.log("[Render] tvbus-stats:", stats)
-	 
+	
+	/*	
     var buffer = stats.split(" ")[0]
-    var dlrate = parseInt(stats.split(" ")[1] * 8 / 1000) + " Kbps"
-
-    document.getElementById('info').innerHTML = buffer;
-    document.getElementById('dl-rate').innerHTML = dlrate;
+	if(buffer == 100){
+		buffer = ''
+	}
+	*/
+	
+	var dlrate = parseInt(stats.split(" ")[1] / 1000) + " Kb/s"
+	document.getElementById('info').innerHTML = dlrate;
 })
 
 ipcRenderer.on("tvbus-stop", function(event, code){
@@ -37,6 +41,18 @@ ipcRenderer.on("tvbus-stop", function(event, code){
 
 
 // web page actions
+document.getElementById('channeltest').onclick = function() {
+	var channelvalue = document.getElementById('channelvalue').value
+	if(channelvalue == ''){
+		document.getElementById('info').innerHTML = 'no tvbus';
+	}else{
+		document.getElementById('info').innerHTML = 'startChannel';
+
+		stopChannel()
+        tvbus.startChannel(channelvalue)
+	}
+}
+
 document.getElementById('channel1').onclick = function() {
     stopChannel()
     tvbus.startChannel("tvbus://12e2K3E6si8bTVT9k3HoSAy2os7sAsUrxwqTRCxMFBJWVifNmpr")
