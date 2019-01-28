@@ -22,6 +22,8 @@ ipcRenderer.on("tvbus-prepared", function(event, url){
 })
 
 ipcRenderer.on("tvbus-stats", function(event, stats){
+	console.log("[Render] tvbus-stats:", stats)
+	 
     var buffer = stats.split(" ")[0]
     var dlrate = parseInt(stats.split(" ")[1] * 8 / 1000) + " Kbps"
 
@@ -35,14 +37,14 @@ ipcRenderer.on("tvbus-stop", function(event, code){
 
 
 // web page actions
-document.getElementById('2').onclick = function() {
+document.getElementById('channel1').onclick = function() {
     stopChannel()
-    tvbus.startChannel("tvbus://1vXojEJ9g5KcBSLLUdFZRrHmgupYY8LKJ4JChE1JZTiu7jEHGS")
+    tvbus.startChannel("tvbus://12e2K3E6si8bTVT9k3HoSAy2os7sAsUrxwqTRCxMFBJWVifNmpr")
 }
 
-document.getElementById('3').onclick = function() {
+document.getElementById('channel2').onclick = function() {
     stopChannel()
-    tvbus.startChannel("tvbus://1gXL3fdwq3BU1npMkHLB2XjRPmrAaVXg8ND7LiHTN6xZNxC8fq")
+    tvbus.startChannel("tvbus://1jU3Y7jex4jJWSB6jD9dZqUw3gyhLdiLHDaVE43CXtGuxxLSjY")
 }
 
 // access code channel
@@ -60,8 +62,8 @@ function loadStream(url) {
     player = new Clappr.Player({
         source: url, 
         parentId: "#player",
-        width: 800,
-        height: 450,
+        width: 815,
+        height: 460,
         autoPlay: true,
     });
 }
