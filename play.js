@@ -55,12 +55,12 @@ document.getElementById('channeltest').onclick = function() {
 
 document.getElementById('channel1').onclick = function() {
     stopChannel()
-    tvbus.startChannel("tvbus://12e2K3E6si8bTVT9k3HoSAy2os7sAsUrxwqTRCxMFBJWVifNmpr")
+    tvbus.startChannel("tvbus://1R8Rw3uqyfdkci7b9VWm7N17ynqv259h1Bo7i2uyi9bmq513uX")
 }
 
 document.getElementById('channel2').onclick = function() {
     stopChannel()
-    tvbus.startChannel("tvbus://1jU3Y7jex4jJWSB6jD9dZqUw3gyhLdiLHDaVE43CXtGuxxLSjY")
+    tvbus.startChannel("tvbus://12MGYHm2fp2wtTjiGpDsbD1odpShZDSn5ub2y74ok1HX5WB6wk")
 }
 
 // access code channel
